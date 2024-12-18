@@ -3,12 +3,116 @@
 
 {% block content %}
 
+<form action="{% url "register_employee" %}" method="post">
+
 <div class="input-group mb-3">
     <span class="input-group-text">@</span>
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+      {{form.firstname}}
       <label for="id_firstname">Primeiro nome</label>
     </div>
+</div>
+    
+<div class="input-group mb-3">
+    <span class="input-group-text">@</span>
+    <div class="form-floating">
+      {{form.lastname}}
+      <label for="id_lastname">Sobrenome</label>
+    </div>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <div class="form-floating">
+    {{form.credential}}
+    <label for="id_credential">Credencial</label>
   </div>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <div class="form-floating">
+    {{form.enterprise}}
+    <label for="id_enterprise">Empresa</label>
+  </div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#empresaModal">
+    Cadastrar
+  </button>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <div class="form-floating">
+    {{form.sector}}
+    <label for="id_sector">Setor</label>
+  </div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#setorModal">
+    Cadastrar
+  </button>
+</div>
+
+{% comment %} <div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <div class="form-floating">
+    {{form.user}}
+    <label for="id_user">Portaria</label>
+  </div>
+</div> {% endcomment %}
+
+</form>
+
+
+<!-- Modal Empresa -->
+<div class="modal fade" id="empresaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="empresaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="empresaModalLabel">Cadastrar Empresa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url "register_employee" %}" method="post">
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="id_enterprise" placeholder="Nome da empresa" name='enterprise'>
+              <label for="id_enterprise">Nome da empresa</label>
+            </div>
+          </div>
+
+          <div class="">
+            <button type="submit" class="btn btn-outline-primary w-100">Cadastrar</button>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Setor -->
+<div class="modal fade" id="setorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="setorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="setorModalLabel">Cadastrar Setor</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url "register_employee" %}" method="post"></form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}

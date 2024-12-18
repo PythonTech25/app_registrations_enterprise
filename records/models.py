@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Sector(models.Model):
@@ -22,6 +23,7 @@ class RegisterEmployee(models.Model):
     credential = models.PositiveIntegerField()
     enterprise = models.ForeignKey(Enterprise, on_delete=models.CASCADE)
     sector = models.ForeignKey(Sector, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     create_at = models.DateField(auto_now_add=True)
     
     def __str__(self):
