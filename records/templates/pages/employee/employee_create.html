@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<form action="{% url "register_employee" %}" method="post">
+<form action="{% url "register_employee" %}" method="post">{% csrf_token %}
 
 <div class="input-group mb-3">
     <span class="input-group-text">@</span>
@@ -73,7 +73,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{% url "register_employee" %}" method="post">
+        <form action="{% url "register_employee" %}" method="post">{% csrf_token %}
           <div class="input-group mb-3">
             <span class="input-group-text">@</span>
             <div class="form-floating">
@@ -105,7 +105,30 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{% url "register_employee" %}" method="post"></form>
+        
+        <form action="{% url "register_employee" %}" method="post">{% csrf_token %}
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="id_sector_name" placeholder="Setor" name='sector_name'>
+              <label for="id_sector_name">Setor</label>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="id_sector_phone" placeholder="Setor" name='sector_phone' value='{{sector}}'>
+              <label for="id_sector_phone">Ramal</label>
+            </div>
+          </div>
+
+          <div class="">
+            <button type="submit" class="btn btn-outline-primary w-100">Cadastrar</button>
+          </div>
+
+        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
