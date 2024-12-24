@@ -32,3 +32,59 @@ class EmployeeForm(ModelForm):
             {'class': 'form-control', 'placeholder': 'Portaria'}
         )
         
+        
+class KeyForm(ModelForm):
+    class Meta:
+        model = models.RegisterKey
+        fields = '__all__'
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Nome da chave'}
+        )
+        
+        self.fields['number'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Número'}
+        )
+        
+        self.fields['amount'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Quantidade de cópias'}
+        )
+        
+        self.fields['user'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Portaria'}
+        )
+        
+        
+class EPIForm(ModelForm):
+    class Meta:
+        model = models.RegisterEPI
+        fields = '__all__'
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Nome da chave'}
+        )
+        
+        self.fields['number'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Número'}
+        )
+        
+        self.fields['amount'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Quantidade de cópias'}
+        )
+        
+        self.fields['description'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Descrição'}
+        )
+        
+        self.fields['user'].widget.attrs.update(
+            {'class': 'form-control', 'placeholder': 'Portaria'}
+        )
+        
+    
+        
+        
+        

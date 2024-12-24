@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}EPIS{% endblock title %}
+
+{% block content %}
+
+{% if messages %}
+
+  {% for msg in messages %}
+    
+    <div class="position-absolute z-3">
+      <div class="alert alert-success text-align-center px-5" role="alert">
+        {{ msg }}
+      </div>
+    </div>
+
+  {% endfor %}
+
+{% endif %}
+
+<form action="{% url "register_epi" %}" method="post">{% csrf_token %}
+
+<div class="input-group mb-3">
+    <span class="input-group-text"><i class="fa-solid fa-user-shield"></i></span>
+    <div class="form-floating">
+      {{form.name}}
+      <label for="id_name">Nome EPI</label>
+    </div>
+</div>
+    
+<div class="input-group mb-3">
+    <span class="input-group-text"><i class="fa-solid fa-1"></i></span>
+    <div class="form-floating">
+      {{form.number}}
+      <label for="id_number">Número/Tamanho</label>
+    </div>
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text"><i class="fa-solid fa-box-open"></i></span>
+    <div class="form-floating">
+        {{form.amount}}
+        <label for="id_amount">Quantidade</label>
+    </div>
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text"><i class="fa-solid fa-clipboard-list"></i></span>
+    <div class="form-floating">
+        {{form.description}}
+        <label for="id_description">Descrição</label>
+    </div>
+</div>
+
+<div class="mb-3">
+  <button type="submit" class="btn btn-outline-primary btn-lg w-100">Registrar <i class="fa-solid fa-check"></i></button>
+</div>
+
+</form>
+
+{% endblock content %}

@@ -30,3 +30,27 @@ class RegisterEmployee(models.Model):
         return f'{self.firstname} {self.lastname}'
     
     
+class RegisterKey(models.Model):
+    name = models.CharField(max_length=255)
+    number = models.PositiveIntegerField()
+    amount = models.PositiveIntegerField(default=1)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    create_at = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'Chave: {self.name} | Número: {self.number}'
+    
+    
+class RegisterEPI(models.Model):
+    name = models.CharField(max_length=255)
+    number = models.PositiveIntegerField()
+    amount = models.PositiveIntegerField(default=1)
+    description = models.TextField(max_length=500, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    create_at = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.name}'
+    
+    
+    
